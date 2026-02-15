@@ -1,0 +1,106 @@
+.contact-section .section-header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-8);
+    margin-bottom: var(--space-16);
+}
+
+.contact-card {
+    padding: var(--space-8);
+    text-align: center;
+}
+
+.contact-title {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-6);
+    color: var(--color-green);
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.03);
+    transition: all var(--transition-base);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+.social-link:hover {
+    background-color: var(--color-green);
+    color: var(--color-black);
+    border-color: var(--color-green);
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px var(--color-green);
+}
+
+.social-icon {
+    font-size: var(--text-xl);
+}
+
+/* Email */
+.email-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    font-size: var(--text-lg);
+    color: var(--color-white);
+    transition: color var(--transition-fast);
+    padding: var(--space-4);
+}
+
+.email-link:hover {
+    color: var(--color-green);
+}
+
+.email-icon {
+    font-size: var(--text-2xl);
+}
+
+/* Resume Button */
+.resume-btn {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding-top: var(--space-12);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer p {
+    font-size: var(--text-sm);
+    color: var(--color-gray-500);
+    letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+}

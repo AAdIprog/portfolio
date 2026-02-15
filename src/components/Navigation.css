@@ -1,0 +1,120 @@
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: transparent;
+    transition: all var(--transition-base);
+    padding: var(--space-6) 0;
+}
+
+.navigation.scrolled {
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: var(--space-4) 0;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-8);
+}
+
+.nav-logo {
+    flex-shrink: 0;
+}
+
+.logo-text {
+    font-family: var(--font-mono);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-white);
+    transition: color var(--transition-fast);
+}
+
+.logo-text:hover {
+    color: var(--color-green);
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--space-8);
+    align-items: center;
+}
+
+.nav-links a {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--color-white);
+    position: relative;
+    transition: color var(--transition-fast);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-green);
+    transition: width var(--transition-base);
+}
+
+.nav-links a:hover {
+    color: var(--color-green);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-badge {
+    flex-shrink: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .nav-badge {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 var(--space-4);
+    }
+
+    .nav-links {
+        gap: var(--space-4);
+    }
+
+    .nav-links a {
+        font-size: var(--text-xs);
+    }
+
+    .logo-text {
+        font-size: var(--text-base);
+    }
+}
+
+@media (max-width: 640px) {
+    .nav-links a {
+        display: none;
+    }
+
+    .nav-links a:nth-child(1),
+    .nav-links a:nth-child(2),
+    .nav-links a:nth-child(5) {
+        display: block;
+    }
+}

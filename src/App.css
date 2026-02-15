@@ -1,0 +1,12 @@
+.App {
+  min-height: 100vh;
+}
+
+main {
+  position: relative;
+}
+
+/* Smooth scroll offset for fixed navigation */
+section {
+  scroll-margin-top: 80px;
+}

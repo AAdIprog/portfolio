@@ -1,0 +1,119 @@
+.about-section {
+    color: var(--color-black);
+}
+
+.about-section .section-header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+}
+
+.about-section .section-title {
+    color: var(--color-black);
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-bio {
+    margin-bottom: var(--space-16);
+    text-align: center;
+}
+
+.bio-text {
+    font-size: var(--text-xl);
+    line-height: 1.8;
+    color: var(--color-gray-700);
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding-left: var(--space-12);
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--color-blue), var(--color-green));
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: var(--space-10);
+    padding-bottom: var(--space-10);
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: calc(var(--space-12) * -1 - 6px);
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--color-green);
+    border: 3px solid var(--color-white);
+    box-shadow: 0 0 0 2px var(--color-black);
+}
+
+.timeline-content {
+    background-color: var(--color-gray-50);
+    border: var(--border-width) solid var(--color-black);
+    padding: var(--space-6);
+    transition: all var(--transition-base);
+}
+
+.timeline-content:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: var(--shadow-brutal);
+}
+
+.timeline-year {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-blue);
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-2);
+}
+
+.timeline-title {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: var(--space-2);
+}
+
+.timeline-description {
+    font-size: var(--text-base);
+    color: var(--color-gray-700);
+    line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .bio-text {
+        font-size: var(--text-lg);
+    }
+
+    .timeline {
+        padding-left: var(--space-8);
+    }
+
+    .timeline-marker {
+        left: calc(var(--space-8) * -1 - 6px);
+    }
+
+    .timeline-title {
+        font-size: var(--text-xl);
+    }
+}
