@@ -1,36 +1,18 @@
 /* ============================================
-   PREMIUM UI/UX PORTFOLIO
-   Elegant Minimal Aesthetic with Premium Micro-interactions
+   PORTFOLIO DESIGN SYSTEM
+   Brutalist-Technical Aesthetic with CRAZY Heavy Animations
    ============================================ */
 
 /* Import Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 /* ============================================
    CSS CUSTOM PROPERTIES (Design Tokens)
    ============================================ */
 
 :root {
-  /* Colors - Refined Palette */
-  --color-background: #0A0E27;
-  --color-surface: #111B3F;
-  --color-surface-light: #1a2555;
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #B4BCD0;
-  --color-text-tertiary: #7A8397;
-  
-  /* Accent Colors */
-  --color-accent: #00D9FF;
-  --color-accent-hover: #00B8D4;
-  --color-accent-light: rgba(0, 217, 255, 0.1);
-  --color-accent-dark: #0099BB;
-  --color-purple: #B366FF;
-  --color-purple-light: rgba(179, 102, 255, 0.1);
-  --color-success: #4ADE80;
-  --color-warning: #FBBF24;
-  
-  /* Legacy colors for compatibility */
-  --color-black: #0A0E27;
+  /* Colors - Brutalist Palette */
+  --color-black: #000000;
   --color-white: #FFFFFF;
   --color-gray-50: #F9FAFB;
   --color-gray-100: #F3F4F6;
@@ -42,16 +24,18 @@
   --color-gray-700: #374151;
   --color-gray-800: #1F2937;
   --color-gray-900: #111827;
-  --color-green: #4ADE80;
-  --color-green-dark: #22C55E;
+
+  /* Accent Colors */
+  --color-green: #00FF88;
+  --color-green-dark: #00CC6A;
   --color-blue: #0EA5E9;
-  --color-blue-glow: rgba(0, 217, 255, 0.15);
+  --color-blue-glow: rgba(14, 165, 233, 0.3);
   --color-orange: #F97316;
+  --color-purple: #A855F7;
 
   /* Typography */
-  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'Inter', 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', monospace;
 
   /* Font Sizes */
   --text-xs: 0.75rem;
@@ -147,28 +131,14 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: var(--text-base);
   line-height: 1.6;
-  color: var(--color-text-primary);
-  background-color: var(--color-background);
+  color: var(--color-white);
+  background-color: var(--color-black);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  position: relative;
-}
-
-/* Premium background gradient */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(ellipse 80% 80% at 50% 20%, rgba(0, 217, 255, 0.06) 0%, rgba(10, 14, 39, 0) 70%);
-  pointer-events: none;
-  z-index: 1;
 }
 
 /* ============================================
@@ -418,53 +388,231 @@ a:hover {
 }
 
 /* ============================================
-   ANIMATIONS
+   CRAZY HEAVY ANIMATIONS
    ============================================ */
 
+/* Gradient text animation */
+@keyframes gradientShift {
+  0% {
+    background: linear-gradient(135deg, var(--color-green) 0%, var(--color-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  33% {
+    background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  66% {
+    background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-green) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  100% {
+    background: linear-gradient(135deg, var(--color-green) 0%, var(--color-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Letter stagger animation */
+@keyframes letterBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) rotateX(90deg) scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-10px) rotateX(0deg) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg) scale(1);
+  }
+}
+
+/* Floating particles */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(-30px) translateX(10px);
+  }
+  50% {
+    transform: translateY(-60px) translateX(-15px);
+  }
+  75% {
+    transform: translateY(-30px) translateX(20px);
+  }
+}
+
+/* Pulsing glow */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7), 0 0 20px var(--color-blue);
+  }
+  50% {
+    box-shadow: 0 0 0 30px rgba(14, 165, 233, 0), 0 0 40px var(--color-blue);
+  }
+}
+
+/* Flip card */
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+  50% {
+    transform: rotateY(180deg) rotateX(10deg);
+  }
+  100% {
+    transform: rotateY(360deg) rotateX(0deg);
+  }
+}
+
+/* Slide in left massive */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Slide in right massive */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Fade in up massive */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(60px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-@keyframes fadeIn {
+/* Scale bounce */
+@keyframes scaleBounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+/* Infinite rotate */
+@keyframes infiniteRotate {
   from {
-    opacity: 0;
+    transform: rotate(0deg);
   }
-
   to {
-    opacity: 1;
+    transform: rotate(360deg);
   }
 }
 
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
+/* Shimmer glow */
+@keyframes shimmerGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px var(--color-green), 0 0 40px rgba(0, 255, 136, 0.3);
   }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
+  50% {
+    box-shadow: 0 0 30px var(--color-green), 0 0 60px rgba(0, 255, 136, 0.5);
   }
 }
 
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s var(--ease-out) forwards;
+/* Bounce border */
+@keyframes bounceBorder {
+  0%, 100% {
+    border-color: var(--color-green);
+    box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.4);
+  }
+  50% {
+    border-color: var(--color-blue);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.8);
+  }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.6s var(--ease-out) forwards;
+/* Text reveal */
+@keyframes textReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Animation utility classes */
+.animate-gradient-shift {
+  animation: gradientShift 6s ease-in-out infinite;
+}
+
+.animate-letter-bounce {
+  animation: letterBounce 0.8s var(--ease-bounce) forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.animate-flip {
+  animation: flip 0.8s ease-in-out;
 }
 
 .animate-slide-in-left {
-  animation: slideInLeft 0.6s var(--ease-out) forwards;
+  animation: slideInLeft 0.8s var(--ease-out) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s var(--ease-out) forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s var(--ease-out) forwards;
+}
+
+.animate-scale-bounce {
+  animation: scaleBounce 0.6s ease-in-out infinite;
+}
+
+.animate-infinite-rotate {
+  animation: infiniteRotate 20s linear infinite;
+}
+
+.animate-shimmer-glow {
+  animation: shimmerGlow 2s ease-in-out infinite;
+}
+
+.animate-bounce-border {
+  animation: bounceBorder 2s ease-in-out infinite;
+}
+
+.animate-text-reveal {
+  animation: textReveal 1s ease-out forwards;
 }
 
 /* Stagger animation delays */
@@ -486,6 +634,18 @@ a:hover {
 
 .delay-500 {
   animation-delay: 500ms;
+}
+
+.delay-600 {
+  animation-delay: 600ms;
+}
+
+.delay-700 {
+  animation-delay: 700ms;
+}
+
+.delay-800 {
+  animation-delay: 800ms;
 }
 
 /* ============================================

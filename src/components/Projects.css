@@ -23,6 +23,27 @@
 
 .featured-project-card {
     padding: var(--space-10);
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform-style: preserve-3d;
+}
+
+.featured-project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0), rgba(0, 255, 136, 0));
+    border-radius: var(--border-radius-md);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.featured-project-card:hover::before {
+    opacity: 0.15;
 }
 
 .project-content-grid {
@@ -133,12 +154,15 @@
 .preview-placeholder {
     text-align: center;
     padding: var(--space-8);
+    position: relative;
 }
 
 .preview-icon {
     color: var(--color-blue);
     margin-bottom: var(--space-4);
-    opacity: 0.5;
+    opacity: 0.8;
+    display: inline-block;
+    animation: infiniteRotate 20s linear infinite;
 }
 
 .preview-placeholder p {

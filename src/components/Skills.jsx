@@ -12,6 +12,29 @@ const Skills = () => {
         { title: 'Tools', skills: skills.tools, color: 'yellow' },
     ];
 
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.15,
+            },
+        },
+    };
+
+    const cardVariants = {
+        hidden: { opacity: 0, y: 40, scale: 0.9 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            transition: {
+                duration: 0.6,
+                ease: "easeOut",
+            }
+        },
+    };
+
     return (
         <section id="skills" className="skills-section bg-black section">
             <div className="container">
@@ -22,33 +45,58 @@ const Skills = () => {
                     transition={{ duration: 0.6 }}
                     className="section-header"
                 >
-                    <span className="badge badge-orange mono">TECH STACK</span>
+                    <motion.span 
+                        className="badge badge-orange mono"
+                        animate={{ boxShadow: "0 0 20px rgba(249, 115, 22, 0.4)" }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                    >
+                        TECH STACK
+                    </motion.span>
                     <h2 className="section-title">
                         SKILLS &
                         <br />
-                        <span className="title-accent">EXPERTISE</span>
+                        <span className="title-accent animate-gradient-shift">EXPERTISE</span>
                     </h2>
                 </motion.div>
 
-                <div className="skills-grid">
+                <motion.div 
+                    className="skills-grid"
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                >
                     {skillCategories.map((category, catIndex) => (
                         <motion.div
                             key={category.title}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: catIndex * 0.1, duration: 0.6 }}
+                            variants={cardVariants}
                             className="skill-category card"
+                            whileHover={{ 
+                                y: -15,
+                                boxShadow: `0 0 30px rgba(255, 255, 255, 0.1), 0 0 40px rgba(14, 165, 233, 0.2)`
+                            }}
+                            transition={{ duration: 0.4 }}
                         >
-                            <h3 className="category-title-skill mono">{category.title}</h3>
+                            <motion.h3 
+                                className="category-title-skill mono"
+                                animate={{ color: ["var(--color-white)", "var(--color-green)", "var(--color-white)"] }}
+                                transition={{ duration: 3, repeat: Infinity }}
+                            >
+                                {category.title}
+                            </motion.h3>
                             <div className="skill-tags">
                                 {category.skills.map((skill, skillIndex) => (
                                     <motion.span
                                         key={skill}
-                                        initial={{ opacity: 0, scale: 0.8 }}
-                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        initial={{ opacity: 0, scale: 0, rotate: -20 }}
+                                        whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
                                         viewport={{ once: true }}
-                                        transition={{ delay: catIndex * 0.1 + skillIndex * 0.05, duration: 0.3 }}
+                                        transition={{ delay: catIndex * 0.15 + skillIndex * 0.08, duration: 0.5 }}
+                                        whileHover={{ 
+                                            scale: 1.15,
+                                            boxShadow: `0 0 15px rgba(14, 165, 233, 0.6)`,
+                                            rotate: 5
+                                        }}
                                         className={`badge badge-${category.color}`}
                                     >
                                         {skill}
@@ -57,7 +105,7 @@ const Skills = () => {
                             </div>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

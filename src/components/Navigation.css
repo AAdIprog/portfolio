@@ -59,23 +59,41 @@
     transition: color var(--transition-fast);
 }
 
-.nav-links a::after {
+.nav-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::after {
     content: '';
     position: absolute;
     bottom: -4px;
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--color-green);
+    background: linear-gradient(90deg, var(--color-green), var(--color-blue));
     transition: width var(--transition-base);
 }
 
-.nav-links a:hover {
-    color: var(--color-green);
+.nav-link:hover::after {
+    width: 100%;
 }
 
-.nav-links a:hover::after {
-    width: 100%;
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.nav-link:hover::before {
+    opacity: 1;
 }
 
 .nav-badge {

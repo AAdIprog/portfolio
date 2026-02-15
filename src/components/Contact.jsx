@@ -26,73 +26,109 @@ const Contact = () => {
                     </p>
                 </motion.div>
 
-                <div className="contact-content">
+                <motion.div 
+                    className="contact-content"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                >
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, y: 50, scale: 0.8 }}
+                        whileInView={{ opacity: 1, y: 0, scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.2, duration: 0.6 }}
+                        transition={{ delay: 0.2, duration: 0.7 }}
                         className="contact-card card"
+                        whileHover={{ 
+                            y: -15,
+                            boxShadow: "0 0 40px rgba(0, 255, 136, 0.3)"
+                        }}
                     >
                         <h3 className="contact-title mono">SOCIAL LINKS</h3>
                         <div className="social-links">
-                            <a
+                            <motion.a
                                 href={personalInfo.social.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="social-link"
+                                whileHover={{ scale: 1.1, rotate: 5 }}
+                                whileTap={{ scale: 0.95 }}
                             >
-                                <FiGithub className="social-icon" />
+                                <FiGithub className="social-icon animate-float" />
                                 <span className="mono">GITHUB</span>
-                            </a>
-                            <a
+                            </motion.a>
+                            <motion.a
                                 href={personalInfo.social.linkedin}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="social-link"
+                                whileHover={{ scale: 1.1, rotate: -5 }}
+                                whileTap={{ scale: 0.95 }}
                             >
-                                <FiLinkedin className="social-icon" />
+                                <FiLinkedin className="social-icon animate-float" style={{animationDelay: '1s'}} />
                                 <span className="mono">LINKEDIN</span>
-                            </a>
+                            </motion.a>
                             {personalInfo.social.phone && (
-                                <a
+                                <motion.a
                                     href={`tel:${personalInfo.social.phone.replace(/\s+/g, '')}`}
                                     className="social-link"
+                                    whileHover={{ scale: 1.1, rotate: 5 }}
+                                    whileTap={{ scale: 0.95 }}
                                 >
-                                    <FiPhone className="social-icon" />
+                                    <FiPhone className="social-icon animate-float" style={{animationDelay: '2s'}} />
                                     <span className="mono">PHONE</span>
-                                </a>
+                                </motion.a>
                             )}
                         </div>
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, y: 50, scale: 0.8 }}
+                        whileInView={{ opacity: 1, y: 0, scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.3, duration: 0.6 }}
+                        transition={{ delay: 0.35, duration: 0.7 }}
                         className="contact-card card"
+                        whileHover={{ 
+                            y: -15,
+                            boxShadow: "0 0 40px rgba(0, 255, 136, 0.3)"
+                        }}
                     >
                         <h3 className="contact-title mono">EMAIL</h3>
-                        <a href={`mailto:${personalInfo.email}`} className="email-link mono">
-                            <FiMail className="email-icon" />
+                        <motion.a 
+                            href={`mailto:${personalInfo.email}`} 
+                            className="email-link mono"
+                            whileHover={{ x: 5, color: "var(--color-green)" }}
+                        >
+                            <FiMail className="email-icon animate-pulse-glow" />
                             {personalInfo.email}
-                        </a>
+                        </motion.a>
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, y: 50, scale: 0.8 }}
+                        whileInView={{ opacity: 1, y: 0, scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.4, duration: 0.6 }}
+                        transition={{ delay: 0.5, duration: 0.7 }}
                         className="contact-card card"
+                        whileHover={{ 
+                            y: -15,
+                            boxShadow: "0 0 40px rgba(0, 255, 136, 0.3)"
+                        }}
                     >
                         <h3 className="contact-title mono">RESUME</h3>
-                        <a href={personalInfo.resume} download className="btn btn-primary resume-btn">
+                        <motion.a 
+                            href={personalInfo.resume} 
+                            download 
+                            className="btn btn-primary resume-btn"
+                            whileHover={{ 
+                                scale: 1.05,
+                                boxShadow: "0 0 30px rgba(0, 255, 136, 0.6)"
+                            }}
+                            whileTap={{ scale: 0.95 }}
+                        >
                             <FiDownload /> DOWNLOAD RESUME
-                        </a>
+                        </motion.a>
                     </motion.div>
-                </div>
+                </motion.div>
 
                 <motion.div
                     initial={{ opacity: 0 }}

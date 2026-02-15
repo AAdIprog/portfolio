@@ -31,35 +31,65 @@ const OpenSource = () => {
                 {/* Stats Cards */}
                 <div className="stats-grid">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, y: 40, scale: 0.8 }}
+                        whileInView={{ opacity: 1, y: 0, scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.1, duration: 0.5 }}
+                        transition={{ delay: 0.1, duration: 0.6 }}
                         className="stat-card"
+                        whileHover={{ 
+                            scale: 1.05,
+                            boxShadow: "0 0 40px rgba(0, 255, 136, 0.4)"
+                        }}
                     >
-                        <div className="stat-number">{stats.prsmerged}</div>
+                        <motion.div 
+                            className="stat-number"
+                            animate={{ color: ["var(--color-white)", "var(--color-green)", "var(--color-white)"] }}
+                            transition={{ duration: 3, repeat: Infinity }}
+                        >
+                            {stats.prsmerged}
+                        </motion.div>
                         <div className="stat-label mono">PRS MERGED</div>
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, y: 40, scale: 0.8 }}
+                        whileInView={{ opacity: 1, y: 0, scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.2, duration: 0.5 }}
+                        transition={{ delay: 0.2, duration: 0.6 }}
                         className="stat-card"
+                        whileHover={{ 
+                            scale: 1.05,
+                            boxShadow: "0 0 40px rgba(0, 255, 136, 0.4)"
+                        }}
                     >
-                        <div className="stat-number">{stats.issuesResolved}</div>
+                        <motion.div 
+                            className="stat-number"
+                            animate={{ color: ["var(--color-white)", "var(--color-blue)", "var(--color-white)"] }}
+                            transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+                        >
+                            {stats.issuesResolved}
+                        </motion.div>
                         <div className="stat-label mono">ISSUES RESOLVED</div>
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, y: 40, scale: 0.8 }}
+                        whileInView={{ opacity: 1, y: 0, scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.3, duration: 0.5 }}
+                        transition={{ delay: 0.3, duration: 0.6 }}
                         className="stat-card"
+                        whileHover={{ 
+                            scale: 1.05,
+                            boxShadow: "0 0 40px rgba(0, 255, 136, 0.4)"
+                        }}
                     >
-                        <div className="stat-number">{stats.repositories}</div>
+                        <motion.div 
+                            className="stat-number"
+                            animate={{ color: ["var(--color-white)", "var(--color-purple)", "var(--color-white)"] }}
+                            transition={{ duration: 3, repeat: Infinity, delay: 2 }}
+                        >
+                            {stats.repositories}
+                        </motion.div>
                         <div className="stat-label mono">REPOSITORIES</div>
                     </motion.div>
                 </div>
@@ -70,15 +100,24 @@ const OpenSource = () => {
                         <span className="category-icon">▣</span> CLOUD NATIVE INFRASTRUCTURE
                     </h3>
 
-                    <div className="projects-grid">
+                    <motion.div 
+                        className="projects-grid"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                    >
                         {openSourceProjects.map((project, index) => (
                             <motion.div
                                 key={project.id}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
+                                initial={{ opacity: 0, y: 50, scale: 0.8 }}
+                                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: index * 0.1, duration: 0.6 }}
+                                transition={{ delay: index * 0.15, duration: 0.7 }}
                                 className="project-card card"
+                                whileHover={{ 
+                                    y: -20,
+                                    boxShadow: "0 0 40px rgba(0, 255, 136, 0.2), 0 20px 60px rgba(0, 0, 0, 0.3)"
+                                }}
                             >
                                 <div className="project-header">
                                     <div>
@@ -130,7 +169,7 @@ const OpenSource = () => {
                                 </div>
                             </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>
