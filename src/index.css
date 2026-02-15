@@ -1,18 +1,36 @@
 /* ============================================
-   PORTFOLIO DESIGN SYSTEM
-   Brutalist-Technical Aesthetic
+   PREMIUM UI/UX PORTFOLIO
+   Elegant Minimal Aesthetic with Premium Micro-interactions
    ============================================ */
 
 /* Import Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
 
 /* ============================================
    CSS CUSTOM PROPERTIES (Design Tokens)
    ============================================ */
 
 :root {
-  /* Colors - Brutalist Palette */
-  --color-black: #000000;
+  /* Colors - Refined Palette */
+  --color-background: #0A0E27;
+  --color-surface: #111B3F;
+  --color-surface-light: #1a2555;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #B4BCD0;
+  --color-text-tertiary: #7A8397;
+  
+  /* Accent Colors */
+  --color-accent: #00D9FF;
+  --color-accent-hover: #00B8D4;
+  --color-accent-light: rgba(0, 217, 255, 0.1);
+  --color-accent-dark: #0099BB;
+  --color-purple: #B366FF;
+  --color-purple-light: rgba(179, 102, 255, 0.1);
+  --color-success: #4ADE80;
+  --color-warning: #FBBF24;
+  
+  /* Legacy colors for compatibility */
+  --color-black: #0A0E27;
   --color-white: #FFFFFF;
   --color-gray-50: #F9FAFB;
   --color-gray-100: #F3F4F6;
@@ -24,18 +42,16 @@
   --color-gray-700: #374151;
   --color-gray-800: #1F2937;
   --color-gray-900: #111827;
-
-  /* Accent Colors */
-  --color-green: #00FF88;
-  --color-green-dark: #00CC6A;
+  --color-green: #4ADE80;
+  --color-green-dark: #22C55E;
   --color-blue: #0EA5E9;
-  --color-blue-glow: rgba(14, 165, 233, 0.3);
+  --color-blue-glow: rgba(0, 217, 255, 0.15);
   --color-orange: #F97316;
-  --color-purple: #A855F7;
 
   /* Typography */
-  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Inter', 'SF Mono', Monaco, 'Cascadia Code', monospace;
 
   /* Font Sizes */
   --text-xs: 0.75rem;
@@ -131,29 +147,29 @@ html {
 }
 
 body {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: var(--text-base);
   line-height: 1.6;
-  color: var(--color-white);
-  background-color: var(--color-black);
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
 }
 
-/* Vignette Glow Effect - Removed per user preference */
-/* body::before {
+/* Premium background gradient */
+body::before {
   content: '';
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  background: radial-gradient(ellipse 80% 80% at 50% 20%, rgba(0, 217, 255, 0.06) 0%, rgba(10, 14, 39, 0) 70%);
   pointer-events: none;
-  z-index: 9999;
-  box-shadow: inset 0 0 120px var(--color-blue-glow);
-  border: 1px solid rgba(14, 165, 233, 0.2);
-} */
+  z-index: 1;
+}
 
 /* ============================================
    TYPOGRAPHY
