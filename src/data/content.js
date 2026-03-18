@@ -143,6 +143,62 @@ export const personalProjects = [
     technologies: ["React", "Web3", "Real-time APIs", "Data Visualization"],
     image: "/bitcoin-explorer-preview.png", // TODO: Add screenshot to public folder
   },
+  {
+    id: "resume-roaster",
+    name: "Resume Roaster",
+    url: "https://resume-roaster-crazy.vercel.app/",
+    description: "AI-powered resume analyzer that gives brutally honest, actionable feedback",
+    features: [
+      "Upload your resume and get roasted by AI in seconds",
+      "Detailed feedback on formatting, content, and impact",
+      "Actionable suggestions to land more interviews",
+      "Clean results breakdown with severity scoring",
+    ],
+    technologies: ["REACT", "TAILWIND", "AI API", "FILE UPLOAD"],
+    image: "/resume-roaster.png",
+  },
+  {
+    id: "movie-search",
+    name: "Movie Search & Watchlist",
+    url: "https://cinetrack-nu.vercel.app/",
+    description: "Search millions of movies and build your personal watchlist in one place",
+    features: [
+      "Real-time movie search powered by TMDB API",
+      "Save and manage your personal watchlist",
+      "Detailed movie info — ratings, cast, synopsis, and trailers",
+      "Responsive design with smooth UI transitions",
+    ],
+    technologies: ["REACT", "TAILWIND", "TMDB API", "LOCAL STATE"],
+    image: "/movie-search.png",
+  },
+  {
+    id: "photo-gallery",
+    name: "Photo Gallery",
+    url: "https://photo-gallery-one-tau.vercel.app/",
+    description: "A beautiful, persistent photo gallery that lives right in your browser",
+    features: [
+      "Upload and organize photos with a clean grid layout",
+      "Persistent storage via localStorage — no backend needed",
+      "Delete, preview, and manage your collection",
+      "Fully responsive with smooth image transitions",
+    ],
+    technologies: ["REACT", "TAILWIND", "LOCALSTORAGE", "FILE API"],
+    image: "/photo-gallery.png",
+  },
+  {
+    id: "snake-game",
+    name: "Snake Game",
+    url: "https://snake-game-ten-sand.vercel.app/",
+    description: "A classic Snake game built from scratch with smooth controls and a high score tracker",
+    features: [
+      "Fluid snake movement with keyboard controls",
+      "High score saved locally across sessions",
+      "Speed increases as you grow — classic arcade feel",
+      "Built with pure vanilla HTML, CSS, and JS",
+    ],
+    technologies: ["HTML", "CSS", "JAVASCRIPT", "CANVAS API"],
+    image: "/snake-game.png",
+  }
 ];
 
 export const timeline = [
